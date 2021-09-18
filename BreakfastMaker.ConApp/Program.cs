@@ -6,9 +6,12 @@ namespace BreakfastMaker.ConApp
 {
 	class Program
 	{
-		static void Main(/*string[] args*/)
+		static async Task Main(/*string[] args*/)
         {
-           RunWithProgress("Sync breakfast maker!", MakeSyncBreakfast);
+            //           RunWithProgress("Sync breakfast maker!", MakeSyncBreakfast);
+            MakeSyncBreakfast();
+            Console.WriteLine();
+            await MakeAsyncBreakfast();
         }
         private static void RunWithProgress(string title, Action action)
         {
@@ -28,11 +31,23 @@ namespace BreakfastMaker.ConApp
         }
         private static void MakeSyncBreakfast()
         {
+            Console.WriteLine("Make sync Breakfast");
             Stopwatch sw = new Stopwatch();
 
-            Console.WriteLine();
             sw.Start();
             var dishes = SyncBreakfastMaker.Logic.Breakfast.Make();
+            sw.Stop();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"It took {sw.ElapsedMilliseconds / 1000} seconds to prepare breakfast!");
+        }
+        private static async Task MakeAsyncBreakfast()
+        {
+            Console.WriteLine("Make async Breakfast");
+            Stopwatch sw = new Stopwatch();
+
+            sw.Start();
+            var dishes = await AsyncBreakfastMaker.Logic.Breakfast.MakeAsync();
             sw.Stop();
             Console.WriteLine();
             Console.WriteLine();
