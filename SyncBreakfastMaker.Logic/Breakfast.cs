@@ -17,19 +17,32 @@ namespace SyncBreakfastMaker.Logic
 			result.AddRange(FryBacons(pan, 2));
 			var toasts = ToastBread(2);
 			result.AddRange(toasts);
-
+			ApplyButter(toasts);
+			ApplyJam(toasts);
+			result.Add(PourJuice());
 			return result;
 		}
 
 		public static Coffee PourCoffee()
 		{
+            Console.WriteLine();
+            Console.Write("Pouring coffee");
 			Task.Delay(1000).Wait();
 
 			return new Coffee();
 		}
+		public static Juice PourJuice()
+		{
+            Console.WriteLine();
+			Console.Write("Pouring juice");
+			Task.Delay(1000).Wait();
 
+			return new Juice();
+		}
 		public static Pan HeatPan()
 		{
+            Console.WriteLine();
+			Console.Write("Heating pan");
 			Task.Delay(1000 * 10).Wait();
 
 			return new Pan()
@@ -49,6 +62,8 @@ namespace SyncBreakfastMaker.Logic
 				pan.InUse = true;
 				for (int i = 0; i < count; i++)
 				{
+                    Console.WriteLine();
+					Console.Write("Frying egg");
 					Task.Delay(1000 * 10).Wait();
 
 					result.Add(new Egg() { Fryed = true, });
@@ -69,6 +84,8 @@ namespace SyncBreakfastMaker.Logic
 				pan.InUse = true;
 				for (int i = 0; i < count; i++)
 				{
+                    Console.WriteLine();
+					Console.Write("Frying bacon");
 					Task.Delay(1000 * 10).Wait();
 
 					result.Add(new Bacon() { Fryed = true, });
@@ -83,23 +100,41 @@ namespace SyncBreakfastMaker.Logic
 
 			for (int i = 0; i < count; i++)
 			{
+                Console.WriteLine();
+				Console.Write("Toasting bread");
 				Task.Delay(1000 * 10).Wait();
 
 				result.Add(new Toast() { Toasted = true, });
 			}
 			return result;
 		}
-		//public static void ApplyButter(Toast toast)
-		//{
-		//	var result = new List<Toast>();
+        public static void ApplyButter(IEnumerable<Toast> toasts)
+        {
+			if (toasts == null)
+				throw new ArgumentNullException(nameof(toasts));
 
-		//	for (int i = 0; i < count; i++)
-		//	{
-		//		Task.Delay(1000 * 10).Wait();
+            foreach (var item in toasts)
+            {
+                Console.WriteLine();
+				Console.Write("Brush bread with butter");
+				Task.Delay(1000 * 1).Wait();
 
-		//		result.Add(new Toast() { Toasted = true, });
-		//	}
-		//	return result;
-		//}
+				item.HasButter = true;
+			}
+        }
+		public static void ApplyJam(IEnumerable<Toast> toasts)
+		{
+			if (toasts == null)
+				throw new ArgumentNullException(nameof(toasts));
+
+			foreach (var item in toasts)
+			{
+                Console.WriteLine();
+				Console.Write("Brush bread with jam");
+				Task.Delay(1000 * 1).Wait();
+
+				item.HasJam = true;
+			}
+		}
 	}
 }
