@@ -28,6 +28,8 @@ namespace SyncBreakfastMaker.Logic
             Console.WriteLine();
             Console.Write("Pouring coffee");
 			Task.Delay(1000).Wait();
+			Console.WriteLine();
+			Console.Write("Coffee is already");
 
 			return new Coffee();
 		}
@@ -36,6 +38,8 @@ namespace SyncBreakfastMaker.Logic
             Console.WriteLine();
 			Console.Write("Pouring juice");
 			Task.Delay(1000).Wait();
+			Console.WriteLine();
+			Console.Write("Juice is already");
 
 			return new Juice();
 		}
@@ -44,6 +48,8 @@ namespace SyncBreakfastMaker.Logic
             Console.WriteLine();
 			Console.Write("Heating pan");
 			Task.Delay(1000 * 10).Wait();
+			Console.WriteLine();
+			Console.Write("Pan is already");
 
 			return new Pan()
 			{
@@ -70,6 +76,8 @@ namespace SyncBreakfastMaker.Logic
 				}
 				pan.InUse = false;
 			}
+			Console.WriteLine();
+			Console.Write("Eggs are already");
 			return result;
 		}
 		public static IEnumerable<Bacon> FryBacons(Pan pan, int count)
@@ -92,6 +100,8 @@ namespace SyncBreakfastMaker.Logic
 				}
 				pan.InUse = false;
 			}
+			Console.WriteLine();
+			Console.Write("Bacons are ready");
 			return result;
 		}
 		public static IEnumerable<Toast> ToastBread(int count)
@@ -106,6 +116,8 @@ namespace SyncBreakfastMaker.Logic
 
 				result.Add(new Toast() { Toasted = true, });
 			}
+			Console.WriteLine();
+			Console.Write("Breads are already");
 			return result;
 		}
         public static void ApplyButter(IEnumerable<Toast> toasts)
@@ -121,7 +133,9 @@ namespace SyncBreakfastMaker.Logic
 
 				item.HasButter = true;
 			}
-        }
+			Console.WriteLine();
+			Console.Write("Breads has butter");
+		}
 		public static void ApplyJam(IEnumerable<Toast> toasts)
 		{
 			if (toasts == null)
@@ -135,6 +149,8 @@ namespace SyncBreakfastMaker.Logic
 
 				item.HasJam = true;
 			}
+			Console.WriteLine();
+			Console.Write("Breads has jam");
 		}
 	}
 }
