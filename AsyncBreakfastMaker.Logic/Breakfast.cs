@@ -185,7 +185,7 @@ namespace AsyncBreakfastMaker.Logic
                     item.HasButter = true;
                 }
                 Console.WriteLine();
-                Console.Write("Breads has butter");
+                Console.Write("Breads have butter");
             });
         }
         public static Task ApplyJamAsync(IEnumerable<Toast> toasts)
@@ -204,7 +204,7 @@ namespace AsyncBreakfastMaker.Logic
                     item.HasJam = true;
                 }
                 Console.WriteLine();
-                Console.Write("Breads has jam");
+                Console.Write("Breads have jam");
             });
         }
     }

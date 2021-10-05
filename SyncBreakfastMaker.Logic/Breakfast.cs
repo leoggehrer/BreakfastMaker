@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SyncBreakfastMaker.Logic
 {
-	public class Breakfast
+    public class Breakfast
 	{
 		public static IEnumerable<BreakfastDish> Make()
 		{
@@ -134,7 +134,7 @@ namespace SyncBreakfastMaker.Logic
 				item.HasButter = true;
 			}
 			Console.WriteLine();
-			Console.Write("Breads has butter");
+			Console.Write("Breads have butter");
 		}
 		public static void ApplyJam(IEnumerable<Toast> toasts)
 		{
@@ -150,7 +150,7 @@ namespace SyncBreakfastMaker.Logic
 				item.HasJam = true;
 			}
 			Console.WriteLine();
-			Console.Write("Breads has jam");
+			Console.Write("Breads have jam");
 		}
 	}
 }
