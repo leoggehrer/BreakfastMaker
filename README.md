@@ -30,7 +30,7 @@ Verbinden Sie die Abhängigkeiten der einzelnen Projekte untereinander.
 In der folgenden Tabelle sind die einzelnen Schritte für die Zubereitung des Frühstücks beschrieben:
 
 |Nr.|Name|Beschreibung|Ausgabe|Zeit|
-|---|---|---|---|
+|---|---|---|---|---|
 |1.|*Coffee PourCoffee()*|Gießt den Kaffee in eine Tasse ein.|Pouring coffee...Coffee is already|1 sec.|
 |2.|*Pan HeatPan()*|Erhitzt eine Pfanne.|Heating pan...Pan is already|10 sec.|
 |3.|*Egg[] FryEggs(Pan pan, int count)*|Braten von Eiern z.B.: 2|Frying egg...Eggs are already|10 sec. pro Ei|
