@@ -13,8 +13,8 @@ namespace AsyncBreakfastMaker.Logic
             var tasks = new List<Task>();
 
             tasks.Add(PourCoffeeAsync());
-            tasks.Add(HeatPansFryEggsAndFryBacons());
-            tasks.Add(ToastBreadApplyButterAndJam());
+            tasks.Add(HeatPansFryEggsAndFryBaconsAsync());
+            tasks.Add(ToastBreadApplyButterAndJamAsync());
             tasks.Add(PourJuiceAsync());
 
             await Task.WhenAll(tasks);
@@ -31,7 +31,7 @@ namespace AsyncBreakfastMaker.Logic
             return result;
         }
 
-        public static async Task<IEnumerable<BreakfastDish>> HeatPanFryEggsAndFryBacons()
+        public static async Task<IEnumerable<BreakfastDish>> HeatPanFryEggsAndFryBaconsAsync()
         {
             var result = new List<BreakfastDish>();
 
@@ -41,7 +41,7 @@ namespace AsyncBreakfastMaker.Logic
             result.AddRange(await FryBaconsAsync(pan, 2));
             return result;
         }
-        public static async Task<IEnumerable<BreakfastDish>> HeatPansFryEggsAndFryBacons()
+        public static async Task<IEnumerable<BreakfastDish>> HeatPansFryEggsAndFryBaconsAsync()
         {
             var result = new List<BreakfastDish>();
 
@@ -59,7 +59,7 @@ namespace AsyncBreakfastMaker.Logic
             result.AddRange(await baconsTask);
             return result;
         }
-        public static async Task<IEnumerable<BreakfastDish>> ToastBreadApplyButterAndJam()
+        public static async Task<IEnumerable<BreakfastDish>> ToastBreadApplyButterAndJamAsync()
         {
             var result = new List<BreakfastDish>();
 
