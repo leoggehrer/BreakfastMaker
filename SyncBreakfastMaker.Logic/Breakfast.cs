@@ -11,16 +11,16 @@ namespace SyncBreakfastMaker.Logic
 		{
 			var result = new List<BreakfastDish>();
 
-			result.Add(PourCoffee());
-			var pan = HeatPan();
-			result.AddRange(FryEggs(pan, 2));
-			result.AddRange(FryBacons(pan, 2));
-			var toasts = ToastBread(2);
+			result.Add(PourCoffee());			// 1 sec
+			var pan = HeatPan();				// 10 sec.
+			result.AddRange(FryEggs(pan, 2));	// 20 sec.
+			result.AddRange(FryBacons(pan, 2));	// 20 sec.
+			var toasts = ToastBread(2);			// 20 sec.
 			result.AddRange(toasts);
-			ApplyButter(toasts);
-			ApplyJam(toasts);
-			result.Add(PourJuice());
-			return result;
+			ApplyButter(toasts);				// 2 sec.
+			ApplyJam(toasts);					// 2 sec.
+			result.Add(PourJuice());			// 1 sec.
+			return result;						// -> 76 sec.
 		}
 
 		public static Coffee PourCoffee()

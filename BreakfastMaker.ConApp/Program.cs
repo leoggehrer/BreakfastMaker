@@ -9,8 +9,8 @@ namespace BreakfastMaker.ConApp
 		static async Task Main(/*string[] args*/)
         {
             //           RunWithProgress("Sync breakfast maker!", MakeSyncBreakfast);
-            MakeSyncBreakfast();
-            Console.WriteLine();
+            //MakeSyncBreakfast();
+            //Console.WriteLine();
             await MakeAsyncBreakfast();
         }
         private static void RunWithProgress(string title, Action action)
